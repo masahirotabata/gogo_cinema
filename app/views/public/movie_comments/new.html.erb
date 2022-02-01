@@ -1,0 +1,42 @@
+<%= form_with(model: [@real_estate, @real_estates_comment], url: public_real_estate_real_estates_comment_index_path(@real_estate), local: true) do |f| %>
+  <%#= render 'layouts/error_messages', object: f.object %>
+    <div id="rating-form">
+   <td> 
+            <%= f.label :detail, "映画感想" %>
+          </td>
+          <td>
+            <%= f.text_area :comment, rows:'5', placeholder: "映画のコメント", class: "form-control form-control-sm" %>
+          </td>
+        </tr><tr>
+          <td> 
+            性別選択
+          </td>
+          <td>
+            <%= f.select :sexuality, [["男性", "男性"], ["女性", "女性"]], include_blank: "性別を選択して下さい" %>
+          </td>
+        </tr><tr>
+          <td> 
+          </td>
+        </tr><tr>
+          <td> 
+            <%= f.label :scene,"独りで/複数で/デートなど視聴時の種別を入力してください" %>
+          </td>
+          <td>
+            <%= f.select :kinds, [["独りで", "独りで"], ["複数同性", "複数同性"],["複数異性", "複数異性"]]], include_blank: "選択して下さい" %>
+          </td>
+        </tr><tr>
+      <label>評価：</label>
+      <%# scoreNameの値をhidden_fieldでカラムに送っている %>
+      <%= f.hidden_field :rate, :value => '0' %>
+    </div>
+      <%= f.submit "投稿する" %>
+    <script>
+      $(function(){
+        $('#rating-form').raty({
+          starOn: '<%= asset_path('star-on.png') %>',
+          starOff: '<%= asset_path('star-off.png') %>',
+          scoreName: 'real_estate_comment[rate]'
+        });
+      });
+    </script>
+      <% end %>

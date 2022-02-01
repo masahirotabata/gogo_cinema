@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  movie_name: MyString
+  image_id: 1
+  image: MyString
+  sexuality: MyString
+  emotion: MyString
+
+two:
+  movie_name: MyString
+  image_id: 1
+  image: MyString
+  sexuality: MyString
+  emotion: MyString
