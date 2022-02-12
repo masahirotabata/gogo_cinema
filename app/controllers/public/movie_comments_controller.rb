@@ -4,6 +4,7 @@ class Public::MovieCommentsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
   end
   
+  #更新
   def create
     @movie = Movie.find(params[:movie_id])
     @movies_comment = MovieComment.new(movie_comment_params)
